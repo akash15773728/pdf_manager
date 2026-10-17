@@ -1,0 +1,146 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        canvas: '#F7F8FF',
+        surface: {
+          DEFAULT: '#FFFFFF',
+          50: '#F7F8FF',
+          100: '#F0F3FF',
+          200: '#E4E8F4',
+          300: '#D3DAEB',
+          400: '#9BA6BC',
+          500: '#667085',
+          600: '#475467',
+          700: '#344054',
+          800: '#1D2939',
+          900: '#171A2B',
+          950: '#0C0F1D',
+        },
+        ink: {
+          DEFAULT: '#171A2B',
+          muted: '#667085',
+          subtle: '#98A2B3',
+        },
+        primary: {
+          DEFAULT: '#4F46F5',
+          50: '#EEF0FF',
+          100: '#E0E3FF',
+          200: '#C7CCFF',
+          300: '#A4ACFF',
+          400: '#7B84FF',
+          500: '#4F46F5',
+          600: '#4338CA',
+          700: '#3730A3',
+          800: '#312E81',
+          900: '#232066',
+          950: '#141242',
+        },
+        indigo: {
+          deep: '#312E81',
+        },
+        lavender: {
+          DEFAULT: '#EAE8FF',
+          50: '#F7F6FF',
+          100: '#EAE8FF',
+          200: '#D8D4FF',
+          300: '#BBB4FE',
+        },
+        softblue: {
+          DEFAULT: '#EDF3FF',
+          50: '#F5F8FF',
+          100: '#EDF3FF',
+          200: '#D8E5FF',
+        },
+        mint: {
+          DEFAULT: '#DDF8EC',
+          50: '#F2FCF7',
+          100: '#DDF8EC',
+          200: '#B8F1D6',
+        },
+        teal: {
+          DEFAULT: '#00A88F',
+          50: '#E6FAF7',
+          100: '#C2F4ED',
+          500: '#00A88F',
+          600: '#008F7A',
+        },
+        coral: {
+          DEFAULT: '#FF806B',
+          50: '#FFF5F2',
+          100: '#FFE6E0',
+          200: '#FFCBC0',
+          300: '#FFAEA0',
+          400: '#FF806B',
+          500: '#F06650',
+          600: '#D64E38',
+        },
+        peach: {
+          DEFAULT: '#FFF0E8',
+          50: '#FFF8F4',
+          100: '#FFF0E8',
+          200: '#FFE1D1',
+        },
+        softyellow: {
+          DEFAULT: '#FFF4C7',
+          50: '#FFFBED',
+          100: '#FFF4C7',
+          200: '#FFE89E',
+        },
+        border: {
+          subtle: '#E4E8F4',
+          strong: '#D0D7E8',
+        },
+        darkfooter: '#111827',
+      },
+      fontFamily: {
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        display: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+      },
+      boxShadow: {
+        'subtle': '0 1px 2px 0 rgba(23, 26, 43, 0.04)',
+        'card': '0 1px 3px 0 rgba(23, 26, 43, 0.05), 0 1px 2px -1px rgba(23, 26, 43, 0.03)',
+        'card-hover': '0 10px 24px -4px rgba(79, 70, 245, 0.1), 0 3px 8px -2px rgba(23, 26, 43, 0.04)',
+        'card-hover-mint': '0 10px 24px -4px rgba(0, 168, 143, 0.12), 0 3px 8px -2px rgba(23, 26, 43, 0.04)',
+        'card-hover-coral': '0 10px 24px -4px rgba(255, 128, 107, 0.12), 0 3px 8px -2px rgba(23, 26, 43, 0.04)',
+        'elevated': '0 16px 36px -4px rgba(49, 46, 129, 0.09), 0 4px 12px -2px rgba(23, 26, 43, 0.04)',
+        'glow-preview': '0 0 35px -5px rgba(79, 70, 245, 0.14)',
+        'popover': '0 20px 40px -8px rgba(23, 26, 43, 0.12)',
+      },
+      animation: {
+        'float-slow': 'floatSlow 6s ease-in-out infinite',
+        'pulse-dot': 'pulseDot 3s ease-in-out infinite',
+        'fade-in-up': 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+      },
+      keyframes: {
+        floatSlow: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-6px)' },
+        },
+        pulseDot: {
+          '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+          '50%': { opacity: '0.6', transform: 'scale(1.15)' },
+        },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(14px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      borderRadius: {
+        'xl': '0.75rem',
+        '2xl': '1rem',
+        '3xl': '1.25rem',
+      },
+      transitionDuration: {
+        DEFAULT: '200ms',
+      },
+    },
+  },
+  plugins: [],
+}
