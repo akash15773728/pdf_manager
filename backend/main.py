@@ -69,6 +69,39 @@ async def health_check():
     }
 
 
+# ─── Frontend Static Files & SPA Routing ─────────────────────────────────────
+frontend_dist = Path(__file__).resolve().parent.parent / "frontend" / "dist"
+
+if frontend_dist.exists() and (frontend_dist / "index.html").exists():
+    from fastapi.staticfiles import StaticFiles
+    from fastapi.responses import FileResponse
+
+    assets_dir = frontend_dist / "assets"
+    if assets_dir.exists():
+        app.mount("/assets", StaticFiles(directory=str(assets_dir)), name="assets")
+
+    @app.get("/{full_path:path}")
+    async def serve_spa(full_path: str):
+        # Allow API docs and openapi schema to pass through
+        if full_path.startswith("api") or full_path.startswith("docs") or full_path.startswith("openapi.json"):
+            return JSONResponse(status_code=404, content={"detail": "Not Found"})
+        file_path = frontend_dist / full_path
+        if file_path.is_file():
+            return FileResponse(str(file_path))
+        return FileResponse(str(frontend_dist / "index.html"))
+else:
+    @app.get("/")
+    async def root():
+        return {
+            "service": "DOCeasy PDF Toolkit API",
+            "status": "online",
+            "docs": "/docs",
+            "health": "/api/health",
+            "tools": "/api/tools",
+            "version": "1.0.0",
+        }
+
+
 @app.exception_handler(Exception)
 async def global_exception_handler(request, exc):
     return JSONResponse(
